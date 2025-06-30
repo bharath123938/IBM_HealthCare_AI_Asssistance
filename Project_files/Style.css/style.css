@@ -1,0 +1,161 @@
+/* app/static/style.css */
+
+/* --- Base & Body Styles --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f3f4f6; /* A slightly cooler light grey */
+    color: #1f2937;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 896px; /* max-w-4xl from Tailwind */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem; /* px-6 */
+}
+
+/* --- Header & Footer --- */
+.header {
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-lg */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;
+    letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.powered-by-badge {
+    font-size: 0.875rem; /* text-sm */
+    background-color: white;
+    color: #4f46e5; /* A vibrant blue */
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px; /* rounded-full */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #6b7280; /* text-gray-500 */
+    font-size: 0.875rem;
+}
+
+.footer p {
+    margin: 0.25rem 0;
+}
+
+/* --- Main Application Card --- */
+.main-content {
+    padding: 2rem 0;
+}
+
+.card {
+    background-color: white;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.card-body {
+    padding: 2rem; /* p-8 */
+}
+
+.card-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700;
+    color: #1f2937; /* text-gray-800 */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* --- Form Elements --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* space-y-6 */
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151; /* text-gray-700 */
+    margin-bottom: 0.25rem;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem; /* px-4 py-3 */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+select:focus, textarea:focus {
+    outline: none;
+    border-color: #6B73FF;
+    box-shadow: 0 0 0 2px rgba(107, 115, 255, 0.5); /* ring-2 ring-blue-500 */
+}
+
+textarea {
+    min-height: 120px; /* rows="5" approx */
+    resize: vertical;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* --- AI Response Section --- */
+.response-container {
+    margin-top: 2rem;
+}
+
+.response-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.response-content {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    color: #374151;
+}
+
+/* This style is crucial for preserving the AI's formatting */
+.response-content p {
+    white-space: pre-wrap;
+    margin: 0;
+}
