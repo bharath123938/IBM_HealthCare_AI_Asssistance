@@ -1,4 +1,4 @@
-# app/main.py
+
 
 import os
 from dotenv import load_dotenv
@@ -7,40 +7,28 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-# Import the handlers from our modular files
 from app.functionalities.symptom_checker import handle_symptom_check
 from app.functionalities.prescription_analyzer import handle_prescription_analysis
 from app.functionalities.diet_recommender import handle_diet_recommendation
 from app.prompts import DISCLAIMER
-
-# --- INITIALIZATION ---
-
-# Load environment variables from the .env file
 load_dotenv()
-
-# Create the FastAPI app instance
 app = FastAPI()
 
-# Mount the 'static' directory to serve files like style.css
-# This is crucial for your new design to work.
+
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
-# Setup the directory for our HTML templates
 templates = Jinja2Templates(directory="app/templates")
 
-# Load credentials from environment variables
 IBM_CLOUD_API_KEY = os.getenv("IBM_CLOUD_API_KEY")
 WATSONX_PROJECT_ID = os.getenv("WATSONX_PROJECT_ID")
 WATSONX_URL = os.getenv("WATSONX_URL")
 
-# A mapping from form values to the correct Python function
 FUNCTION_HANDLERS = {
     "symptoms_checker": handle_symptom_check,
     "prescription_analysis": handle_prescription_analysis,
     "diet_recommendation": handle_diet_recommendation
 }
 
-# --- API ENDPOINTS ---
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
