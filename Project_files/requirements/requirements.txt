@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+ibm-watson-machine-learning
+python-dotenv
+Jinja2
