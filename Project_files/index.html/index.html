@@ -1,0 +1,87 @@
+<!-- app/templates/index.html (Final Corrected Version) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">Healthcare AI Assistant</h1>
+                <span class="powered-by-badge">Powered by IBM Granite</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <form action="/" method="post">
+            <div class="card-grid">
+
+                <!-- Symptom Checker Card -->
+                <div class="card symptom-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6h-6a.75.75 0 0 0 0 1.5h6v6a.75.75 0 0 0 1.5 0v-6h6a.75.75 0 0 0 0-1.5h-6V6Z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <h2 class="card-title">Symptom Checker</h2>
+                        </div>
+                        <p class="card-description">Describe your symptoms and get potential conditions.</p>
+                        <textarea name="user_input_symptoms" placeholder="E.g. Headache, fever, nausea...">{{ form_data.get('user_input_symptoms', '') }}</textarea>
+                        <button type="submit" name="functionality" value="symptoms_checker" class="submit-button">Analyze Symptoms</button>
+                    </div>
+                </div>
+
+                <!-- Prescription Analysis Card -->
+                <div class="card prescription-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a.375.375 0 0 1-.375-.375V6.75A3.75 3.75 0 0 0 10.5 3H5.625Z" /><path d="M12.97 1.816A5.23 5.23 0 0 1 14.25 1.5h1.875a3.375 3.375 0 0 1 3.375 3.375v1.875c0 .76-.235 1.48-.659 2.079l-1.428-1.428a.75.75 0 0 0-1.06-1.06l-4.243-4.243a.75.75 0 0 1 0-1.06l1.272-1.272Z" /></svg>
+                            </div>
+                            <h2 class="card-title">Prescription Analysis</h2>
+                        </div>
+                        <p class="card-description">Describe your prescription for an easy-to-understand summary.</p>
+                        <textarea name="user_input_prescription" placeholder="E.g. Amoxicillin 500mg twice daily...">{{ form_data.get('user_input_prescription', '') }}</textarea>
+                        <button type="submit" name="functionality" value="prescription_analysis" class="submit-button">Analyze Prescription</button>
+                    </div>
+                </div>
+
+                <!-- Diet Recommendation Card -->
+                <div class="card diet-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.053 2.22a.75.75 0 0 1 .792.668c.343.05.682.115 1.017.195.34.081.674.175 1.005.28.324.103.64.22.943.352.312.135.61.29.89.471.288.184.559.39.808.618l.28.25a.75.75 0 0 1-1.06 1.06l-.28-.25a13.398 13.398 0 0 0-.62-.444 11.903 11.903 0 0 0-1.742-.718 11.833 11.833 0 0 0-2.38-.415.75.75 0 0 1-.668-.792Zm13.894 1.48a.75.75 0 0 1 .668.792 11.833 11.833 0 0 0-2.38.415 11.902 11.902 0 0 0-1.742.718 13.398 13.398 0 0 0-.62.444l-.28.25a.75.75 0 1 1-1.06-1.06l.28-.25c.249-.228.52-.434.808-.618.28-.18.578-.336.89-.471.302-.132.619-.25.943-.352.331-.104.665-.199 1.005-.28.335-.08.674-.145 1.017-.195a.75.75 0 0 1 .792-.668ZM5.56 12.53a.75.75 0 0 1 .727-.53h10.426a.75.75 0 0 1 .727.53l1.833 6.11a3 3 0 0 1-2.91 3.86H5.61a3 3 0 0 1-2.91-3.86l1.833-6.11Z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <h2 class="card-title">Diet Recommendation</h2>
+                        </div>
+                        <p class="card-description">Describe your goals or conditions for diet suggestions.</p>
+                        <textarea name="user_input_diet" placeholder="E.g. I want to lose weight and have more energy.">{{ form_data.get('user_input_diet', '') }}</textarea>
+                        <button type="submit" name="functionality" value="diet_recommendation" class="submit-button">Get Recommendations</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+        <!-- Response Section -->
+        {% if response %}
+        <div class="card response-container">
+            <div class="card-body response-card-body">
+                <h2 class="response-title">AI Response:</h2>
+                <div class="response-content">
+                    <p>{{ response }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+
+</body>
+</html>
